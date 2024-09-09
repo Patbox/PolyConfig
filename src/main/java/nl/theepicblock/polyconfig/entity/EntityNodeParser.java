@@ -2,6 +2,7 @@ package nl.theepicblock.polyconfig.entity;
 
 import dev.hbeck.kdl.objects.KDLNode;
 import net.minecraft.entity.EntityType;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.Registries;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -68,7 +69,7 @@ public class EntityNodeParser {
                 }
 
                 if (isJson) {
-                    name = Text.Serializer.fromLenientJson(nameArg.getAsString().getValue());
+                    name = Text.Serialization.fromLenientJson(nameArg.getAsString().getValue(), DynamicRegistryManager.of(Registries.REGISTRIES));
                 } else {
                     name = Text.literal(nameArg.getAsString().getValue());
                 }

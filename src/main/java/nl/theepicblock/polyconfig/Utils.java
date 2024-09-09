@@ -63,7 +63,7 @@ public class Utils {
                 PolyConfig.LOGGER.warn("The regex "+string.getValue()+" didn't match any "+v+"s!");
             }
         } else {
-            var id = new Identifier(string.getValue());
+            var id = Identifier.of(string.getValue());
             var value = registry
                     .getOrEmpty(id)
                     .orElseThrow(() -> notFoundInRegistry(id, v));
